@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-photo',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./photo.component.scss'],
 })
 export class PhotoComponent {
-  description = 'Madara';
-  url = 'https://i0.wp.com/www.fatosdesconhecidos.com.br/wp-content/uploads/2017/10/maxresdefault-19.jpg?resize=900,420';
+
+  @Input() description = '';
+
+  @Input() url = '';
 }
