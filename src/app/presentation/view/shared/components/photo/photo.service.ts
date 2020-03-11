@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -10,5 +10,11 @@ export class PhotoService {
 
   public getUserPhotos(username: string): Observable<IPhoto[]> {
     return this.http.get<IPhoto[]>(`http://localhost:3000/${username}/photos`);
+  }
+
+  public getPaginatedUserPhotos(username: string, page: number) {
+    const params = new HttpParams().append('page', page.toString());
+
+    return this.http.get<IPhoto[]>(`http://localhost:3000/${username}/photos/`, { params });
   }
 }
